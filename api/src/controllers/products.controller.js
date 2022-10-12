@@ -22,8 +22,12 @@ const getAllProducts = async (req, res) => {
 
 const createProducts = async (req, res) => {
   const result = await getNewProducts();
-  for (const user of result.data.names) {
-    await pool.query(`INSERT INTO users (name) values($1)`, [user]);
+
+  for (const user of result.data) {
+    await pool.query(
+      `INSERT INTO users (name,lastname,address,email,phone) values($1,$2,$3,$4,$5)`,
+      [user.name, user.lastName, user.address, user.email, user.phone]
+    );
   }
   res.send(result.data);
 };

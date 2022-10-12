@@ -41,7 +41,7 @@ const renderUsers = async () => {
   }
   for (const user of users) {
     const cardName = document.createElement("div");
-    cardName.innerText = user.name;
+    cardName.innerText = `${user.name} ${user.lastname} - ${user.address} - ${user.phone} - ${user.email}`;
     container.append(cardName);
   }
 };

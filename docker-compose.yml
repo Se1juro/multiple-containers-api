@@ -11,16 +11,35 @@ services:
     volumes:
       - database_data:/var/lib/postgresql/data
     networks:
-      - mynet
+      - postgres
   faker-python:
     build: ./faker
+    restart: always
     volumes:
       - ./faker:/usr/src/app
     ports:
       - "3005:3005"
+    networks:
+      - faker
+  api-node:
+    build: ./api
+    volumes:
+      - ./api:/usr/src/app
+    ports:
+      - "3006:3006"
+    restart: always
+    depends_on:
+      - db
+      - faker-python
+    networks:
+      - postgres
+      - faker
+
 volumes:
   database_data:
     driver: local
 networks:
-  mynet:
-    name: my-shared-db-network
+  postgres:
+    driver: bridge
+  faker:
+    driver: bridge

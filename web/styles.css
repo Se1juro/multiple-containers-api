@@ -1,0 +1,49 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+nav {
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+
+nav>.item>a {
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+}
+
+.container-buttons {
+  display: flex;
+  margin-top: 1em;
+}
+
+.container-buttons button {
+  margin-right: 1em;
+  cursor: pointer;
+}
+
+.container-buttons p {
+  margin-right: 1em;
+}
+
+.container-admin {
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+.container-admin button {
+  width: 14em;
+  cursor: pointer;
+  margin-bottom: 1em;
+}
+
+.container-users-total {
+  margin-bottom: 1em;
+}

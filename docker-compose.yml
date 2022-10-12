@@ -23,8 +23,6 @@ services:
       - faker
   api-node:
     build: ./api
-    volumes:
-      - ./api:/usr/src/app
     ports:
       - "3006:3006"
     restart: always

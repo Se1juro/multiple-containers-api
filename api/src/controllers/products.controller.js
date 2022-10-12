@@ -34,10 +34,6 @@ const deleteAllProducts = async (req, res) => {
   res.send({ message: "All users deleted" });
 };
 
-const getRandomProducts = async (req, res) => {
-  return await getNewProducts();
-};
-
 module.exports = {
   getAllProducts,
   createProducts,

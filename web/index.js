@@ -1,3 +1,4 @@
+console.log("Works");
 let users = [];
 let currentPage = 1;
 let maxPage = 1;

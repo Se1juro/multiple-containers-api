@@ -34,7 +34,6 @@ services:
     networks:
       - postgres
       - faker
-      - api-node
   web:
     build: ./web
     volumes:
@@ -45,8 +44,6 @@ services:
       - NGINX_PORT=80
     depends_on:
       - api-node
-    networks:
-      - api-node
 
 volumes:
   database_data:
@@ -55,6 +52,4 @@ networks:
   postgres:
     driver: bridge
   faker:
-    driver: bridge
-  api-node:
     driver: bridge

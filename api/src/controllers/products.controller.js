@@ -16,7 +16,7 @@ const getAllProducts = async (req, res) => {
     totalRows: Number(totalRows.rows[0].count),
     rows,
     totalPages: Math.ceil(Number(totalRows.rows[0].count) / limit),
-    page,
+    page: Number(page),
   });
 };
 

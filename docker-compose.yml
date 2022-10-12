@@ -1,18 +1,31 @@
 # Use postgres/example user/password credentials
-version: "3.1"
+version: "3.8"
 
 services:
-  db-electiva2:
+  db:
     image: postgres
     restart: always
-    environment:
-      POSTGRES_PASSWORD: "electiva2"
-      POSTGRES_USER: "admin"
     ports:
       - "5432:5432"
+    hostname: postgres
+    environment:
+      POSTGRES_PASSWORD: electiva2
+      POSTGRES_USER: root
+      POSTGRES_DB: products
     volumes:
-      - ./database/data:/var/lib/postgresql/data
-      - ./database/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
+      - database_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - mynet
+  faker-python:
+    build: ./faker
+    volumes:
+      - ./faker:/usr/src/app
+    ports:
+      - "3005:3005"
 volumes:
-  db:
+  database_data:
     driver: local
+networks:
+  mynet:
+    name: my-shared-db-network

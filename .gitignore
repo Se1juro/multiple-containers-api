@@ -1,2 +1,2 @@
-node_modules
-database/data/*
+api/node_modules
+database/data

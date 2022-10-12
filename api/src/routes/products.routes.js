@@ -1,17 +1,16 @@
-const {Router} = require("express")
+const { Router } = require("express");
+const {
+  getAllProducts,
+  createProducts,
+  deleteAllProducts,
+} = require("../controllers/products.controller");
 
-const router = Router()
+const router = Router();
 
-router.get("/api/products",(req,res)=>{
-  res.send("Get products")
-})
+router.get("/api/products", getAllProducts);
 
-router.post("/api/products",(req,res)=>{
-  res.send("Create a product")
-})
+router.post("/api/products", createProducts);
 
-router.delete("/api/products",(req,res)=>{
-  res.send("Delete a product")
-})
+router.delete("/api/products", deleteAllProducts);
 
-module.exports=router
+module.exports = router;
